@@ -30,10 +30,10 @@ Me: Or we could build something that does that
 Sidenote: We ate cereal.
 
 # How It Works
-- Enter your food choices into the input provided (to be built)
+- Enter your food choices into the input provided
 - Click the What Should We Eat button
 - Eat it.
 
 ## To Be Built
-- Input for food choices
+- Allow for deletion of food choices
 - Links to Google showing restaurants near you or recipes based on random food selected
