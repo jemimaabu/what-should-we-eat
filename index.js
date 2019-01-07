@@ -4,7 +4,7 @@ var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
 
 function updateFoodChoices() {
-    displayFoodChoice.innerHTML = foodChoices.map(a => a)
+    displayFoodChoice.innerHTML = foodChoices.map((food,i) => `<span id="foodchoice-${i}">${food}</span>`)
 }
 updateFoodChoices();
 
