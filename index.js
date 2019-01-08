@@ -2,7 +2,7 @@ var foodChoiceInput = document.getElementById("user-food-choice");
 var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
 
-//Array containing inappropriate swear words because isn't vulgarity just hilarious
+//Array containing inappropriate input words because isn't vulgarity just hilarious
 var inappropriate = ["fuck","ass","booty","dick","pussy","cock","penis","vagina","cunt","butt"]
 
 //Array containing initial food choices
