@@ -21,19 +21,18 @@ Her: Pancakes!
 
 Me: There's too many choices!
 
-Her: Yeah, we should write all the choices down and just pick one at random
+Her: Yeah, we should write all the choices down, put it in a bucket and just pick one at random.
 
-Me: Or we could build something that does that
+Me: Or we could build something that does that.
 
 5 minutes later, the first draft of What Should We Eat was built.
 
 Sidenote: We ate cereal.
 
 # How It Works
-- Enter your food choices into the input provided
-- Click the What Should We Eat button
+- Enter your food choices into the input.
+- Click the What Should We Eat button to select randomly.
 - Eat it.
 
 ## To Be Built
-- Allow for deletion of food choices
 - Links to Google showing restaurants near you or recipes based on random food selected
