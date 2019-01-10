@@ -1,6 +1,7 @@
 var foodChoiceInput = document.getElementById("user-food-choice");
 var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
+var foodChosen = document.getElementById("food-choice")
 
 //Array containing inappropriate input words because isn't vulgarity just hilarious
 var inappropriate = ["fuck","ass","booty","dick","pussy","cock","penis","vagina","cunt","butt"]
@@ -46,5 +47,15 @@ function deleteFoodChoice(e) {
 
 function generateRandomFood() {
     var randomIndex = Math.floor(Math.random()*foodChoices.length);
-    document.getElementById("food-choice").innerHTML = foodChoices[randomIndex]
+    foodChosen.innerHTML = foodChoices[randomIndex];
+    renderSuggestedLinks();
+}
+
+function renderSuggestedLinks() {
+    var recipesLink = document.getElementById('recipes-link');
+    var restaurants = document.getElementById('restaurants-link');
+    recipesLink.innerHTML = `${foodChosen.innerText} recipes`;
+    recipesLink.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+recipes`;
+    restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
+    restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
 }
