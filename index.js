@@ -3,9 +3,6 @@ var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
 var foodChosen = document.getElementById("food-choice")
 
-//Array containing inappropriate input words because isn't vulgarity just hilarious
-var inappropriate = ["fuck","ass","booty","dick","pussy","cock","penis","vagina","cunt","butt"]
-
 //Array containing initial food choices
 var foodChoices = ["Pancakes", "Fried rice", "Bread and egg", "Cereal", "Indomie", "Beans", "PB&J sandwiches", "Rice and stew"]
 
@@ -27,8 +24,6 @@ function addFoodChoice() {
         errorMessage.innerHTML = "Input cannot be empty"
     } else if (foodChoices.includes(foodChoiceInput.value)) {
         errorMessage.innerHTML = "Cannot include duplicate item"
-    } else if (inappropriate.includes(foodChoiceInput.value.toLowerCase())) {
-        errorMessage.innerHTML = "Haha, very funny."
     } else {
         errorMessage.innerHTML = "";;
         updateFoodChoices(foodChoiceInput.value);
