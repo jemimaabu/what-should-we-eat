@@ -27,12 +27,10 @@ Me: Or we could build something that does that.
 
 5 minutes later, the first draft of What Should We Eat was built.
 
-Sidenote: We ate cereal.
+**Sidenote:** We ate cereal.
 
 # How It Works
 - Enter your food choices into the input.
 - Click the What Should We Eat button to select randomly.
 - Eat it.
 
-## To Be Built
-- Links to Google showing restaurants near you or recipes based on random food selected
