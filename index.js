@@ -25,12 +25,20 @@ function addFoodChoice() {
     } else if (foodChoices.includes(foodChoiceInput.value)) {
         errorMessage.innerHTML = "Cannot include duplicate item"
     } else {
-        errorMessage.innerHTML = "";;
+        errorMessage.innerHTML = "";
         updateFoodChoices(foodChoiceInput.value);
         foodChoices.push(foodChoiceInput.value);
         foodChoiceInput.value="";
     }
 }
+
+foodChoiceInput.onkeypress = function(event){
+    if (event.which == 13 || event.keyCode == 13) {
+        addFoodChoice()
+        return false;
+    }
+    return true;
+};
 
 function deleteFoodChoice(e) {
     var index = foodChoices.indexOf(e.innerText);
@@ -41,9 +49,16 @@ function deleteFoodChoice(e) {
 }
 
 function generateRandomFood() {
-    var randomIndex = Math.floor(Math.random()*foodChoices.length);
-    foodChosen.innerHTML = foodChoices[randomIndex];
-    renderSuggestedLinks();
+    if (foodChoices.length === 0) {
+        errorMessage.innerHTML = "Can't choose if there's nothing to choose from"
+    } else if (foodChoices.length === 1) {
+        errorMessage.innerHTML = "It's not very random if you only have one option"
+    } else {
+        errorMessage.innerHTML = "";
+        var randomIndex = Math.floor(Math.random()*foodChoices.length);
+        foodChosen.innerHTML = foodChoices[randomIndex];
+        renderSuggestedLinks();
+    }
 }
 
 function renderSuggestedLinks() {
