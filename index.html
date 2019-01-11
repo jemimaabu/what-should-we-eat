@@ -9,18 +9,31 @@
 </head>
 <body>
     <main>
-        <div id="form-error"></div>
-        <label for="user-food-choice">Input food choice: </label>
-        <input type="text" id="user-food-choice" maxlength="40">
-        <button onclick="addFoodChoice()">Add</button>
-        <div id="display-food-choice">
+        <div class="intro">
+            Hi, Welcome to the FoodChooser.
+            May I take your order?
+            This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
+            It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat somehing else.
+            <ul>How it works:
+                <li>Add an option to the list of food</li>
+                <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
+                <li>Eat it.</li>
+            </ul>
         </div>
-        <button onclick="generateRandomFood();">Generate random food</button>
-        <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
-        <div class="recommended-links">
-            <a id="recipes-link" target="_blank"></a>
-            <a id="restaurants-link" target="_blank"></a>
-        </div>
+        <form>
+            <div id="form-error"></div>
+            <label for="user-food-choice">Input food choice: </label>
+            <input type="text" id="user-food-choice" maxlength="40">
+            <button onclick="addFoodChoice()">Add</button>
+            <div id="display-food-choice">
+            </div>
+            <button onclick="generateRandomFood();">FoodChooser</button>
+            <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
+            <div class="recommended-links">
+                <a id="recipes-link" target="_blank"></a>
+                <a id="restaurants-link" target="_blank"></a>
+            </div>
+        </form>
     </main>
 </body>
 <script src="index.js"></script>
