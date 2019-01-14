@@ -10,7 +10,7 @@ I made the project as bare as possible so there should be many things to choose 
 
 **Step 2**: After assigning an issue to yourself, create a pull request for the changes you've made. 
 
-- Check [here](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) for how to create a PR.
+- [A Step by Step Guide to Making Your First GitHub Contribution by Brandon Morelli](https://codeburst.io/a-step-by-step-guide-to-making-your-first-github-contribution-5302260a2940).
 
 **Step 3**: Once your PR is approved and merged, the change will be uploaded to the project website.
 
