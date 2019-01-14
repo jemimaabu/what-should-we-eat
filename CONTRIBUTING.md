@@ -8,13 +8,17 @@ I made the project as bare as possible so there should be many things to choose 
 
 - Checkout the [Sample First Issue](https://github.com/jemimaabu/what-should-we-eat/issues/2) for an idea of how to create an issue.
 
-**Step 2**: After assigning an issue to yourself, create a pull request for the changes you've made. 
+**Step 2**: Assign the issue to yourself or leave a comment under an existing issue, requesting assignment.
+
+**Step 3**: Fork the repository, create a new branch with the same title as your issue (as long as it's something readable) and make whatever changes you want.
+
+**Step 4**: Create a pull request for the branch. 
 
 - [A Step by Step Guide to Making Your First GitHub Contribution by Brandon Morelli](https://codeburst.io/a-step-by-step-guide-to-making-your-first-github-contribution-5302260a2940).
 
-**Step 3**: Once your PR is approved and merged, the change will be uploaded to the project website.
+**Step 5**: Once your PR is approved and merged, the change will be uploaded to the project website.
 
-**Step 4**: Congratulations, you've just contributed to an Open Source Project! Whoopwhoop.
+**Step 6**: Congratulations, you've just contributed to an Open Source Project! Whoopwhoop.
 
 
 ## Code of Conduct
