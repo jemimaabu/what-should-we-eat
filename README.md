@@ -38,3 +38,9 @@ Me: Or we could build something that does that.
 This project is open to contributions from the public. 
 Basically, if you're a beginner, think of it as your introduction to open source. 
 And if you've been open sourcing for a while, here's another contribution to add to your belt.
+
+## Contributing
+Checkout CONTRIBUTING.md for details on how to contribute (not a redundant definition at all).
+
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
