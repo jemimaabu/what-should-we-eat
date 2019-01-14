@@ -34,3 +34,7 @@ Me: Or we could build something that does that.
 - Click the What Should We Eat button to select randomly.
 - Eat it.
 
+# Open Source
+This project is open to contributions from the public. 
+Basically, if you're a beginner, think of it as your introduction to open source. 
+And if you've been open sourcing for a while, here's another contribution to add to your belt.
