@@ -1,3 +1,27 @@
-.intro{
+* {
+    box-sizing: border-box;
+}
+
+main {
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+main .intro{
+    display: inline-block;
+    width: 50%;
+    padding: 1em;
+}
+
+main .intro #intro-title {
     color: blue;
+}
+
+main form {
+    width: 50%;
+    float: right;
+    padding: 1em;
 }
