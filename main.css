@@ -26,8 +26,13 @@ main form {
     padding: 1em;
 }
 
-@media screen and (max-width:992px){
-    main .intro, main form{
-        width:100%;
+@media screen and (max-width: 992px) {
+    main {
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+    main, main .intro, main form{
+        width: 100%;
     }
 }
