@@ -36,7 +36,6 @@ foodChoices.map(food => updateFoodChoices(food))
 function addFoodChoice() 
 {
 
-   
     
     if (foodChoiceInput.value === "") {
         errorMessage.innerHTML = "Input cannot be empty"
@@ -45,9 +44,7 @@ function addFoodChoice()
     } else {
         errorMessage.innerHTML = "";
         foodCount = 0;
-        let food  = foodChoiceInput.value.trim();
-        let firstLetter =  food.charAt(0).toUpperCase();
-        food = firstLetter + food.split("").splice(1).join("");        
+        let food  = foodChoiceInput.value;        
         updateFoodChoices(food);
         foodChoices.push(food);
         foodChoiceInput.value="";

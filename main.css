@@ -15,7 +15,7 @@
 body
 {
     background: #FBDAB5;
-    font-family: 'Quando';
+    font-family: 'Quando','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
@@ -171,16 +171,64 @@ ul button
 .foodlist i
 {
     transform: translateY(-40%);
-    color: #999955;
-    
-   
+    color: #999955;  
    
 }
-
-
 
 .foodlist li:nth-child(even) i
 {
     color: #DFDFA9;
 }
 
+input
+{
+    padding: 5px;
+    font-size: 1.3em;
+}
+
+
+/*MQ For desktop layout*/
+
+@media (min-width:991px)
+{
+    .quote:nth-child(1)
+    {
+        top:-31%;
+        left:4%;
+
+    }
+
+
+    .hori
+    {      
+        margin: 25px 0;
+    }
+
+    header > span
+    {   
+        position: relative;
+        font-size: 92px;
+
+    }
+
+    header span:nth-child(1)
+    {
+         top:9vh;
+         left:25vw;
+
+
+    }
+
+    header span:nth-child(2)
+    {
+        top:9vh;        
+        left:27vw;
+    }
+
+
+    
+   
+
+
+   
+}
