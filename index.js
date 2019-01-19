@@ -11,12 +11,21 @@ var foodChoices = ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Ind
 
 // Function to display added food choices
 function updateFoodChoices(food) {
-    var span = document.createElement("span")
-    span.innerHTML = food;
-    var click = document.createAttribute("onclick");
-    click.value = "deleteFoodChoice(this)";
-    span.setAttributeNode(click);
-    displayFoodChoice.appendChild(span);
+   // var span = document.createElement("span")
+   
+    let listItem = document.createElement("li");
+    let btn = document.createElement("button");
+    btn.textContent = "-";
+
+    btn.addEventListener("click",deleteFoodChoice,false);
+   
+    listItem.textContent = food;
+    listItem.appendChild(btn);
+
+  
+  
+    displayFoodChoice.appendChild(listItem);
+   
 }
 
 // Display the choices in initial food choices 
@@ -45,12 +54,30 @@ foodChoiceInput.onkeypress = function(event){
     return true;
 };
 
-function deleteFoodChoice(e) {
-    var index = foodChoices.indexOf(e.innerText);
-    if (index >= 0) {
+// function deleteFoodChoice(e) {
+//     var index = foodChoices.indexOf(e.innerText);
+//     if (index >= 0) {
+//         foodChoices.splice(index, 1);
+//         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
+//     }
+// }
+
+
+function deleteFoodChoice(e)
+{
+    console.log("clicked");
+    let food = e.target.parentElement.textContent;
+    food = food.split("").splice(0,food.length-1).join("");    
+    console.log(food);
+    let index = foodChoices.indexOf(food) ;
+    if( index > -1)
+    {        
         foodChoices.splice(index, 1);
+        console.log("removed")
         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
+
     }
+
 }
 
 function generateRandomFood() {

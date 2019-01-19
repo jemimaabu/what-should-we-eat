@@ -40,8 +40,6 @@
 
         </div>
 
-
-        <br>
         <br>
 
 
@@ -50,15 +48,20 @@
             <label for="user-food-choice">Input food choice: </label>
             <input type="text" id="user-food-choice" maxlength="40">
             <button onclick="addFoodChoice()">Add</button>
-            <div id="display-food-choice">
-            </div>
+
             <button onclick="generateRandomFood();">FoodChooser</button>
-            <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
-            <div class="recommended-links">
-                <a id="recipes-link" target="_blank"></a>
-                <a id="restaurants-link" target="_blank"></a>
-            </div>
+
         </form>
+
+        <ul id="display-food-choice">
+
+        </ul>
+
+        <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
+        <div class="recommended-links">
+            <a id="recipes-link" target="_blank"></a>
+            <a id="restaurants-link" target="_blank"></a>
+        </div>
 
 
 
