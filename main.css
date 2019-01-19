@@ -1,3 +1,10 @@
+@font-face
+ {
+    font-family: stylus;
+    src: url(./fonts/stylu.ttf);
+  }
+
+
 *
 {
     margin:0;
@@ -8,4 +15,111 @@
 body
 {
     background: #FBDAB5;
+    font-family: 'Quando';
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 1.2em;
+    letter-spacing: 0.03em;
 }
+
+
+/*************HEADER SECTION****************/
+
+header
+{
+    height: 35%;
+    height:40vh;
+    background-color: rgb(252, 136, 4);
+    background: url(images/italian-cuisine-2378729_960_720.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
+
+header > span
+
+{
+    font-family: 'Pacifico','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 114px;
+    font-size: 64px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #FBDAB5;
+    text-shadow: 0px 0px 5px #444400;
+    position: absolute;
+}
+
+span:nth-child(1)
+{
+    top: -9%;
+    left:5%;   
+
+}
+
+span:nth-child(2)
+{
+    top: 20%;
+    left:30%;   
+}
+
+/*************MAIN SECTION****************/
+main
+{
+    padding: 10px;
+    position: relative;
+}
+
+.intro
+{
+    
+}
+
+blockquote
+{
+    font-family: stylus,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 0.03em;
+    position: relative;
+    margin: 10px 0;
+}
+
+.quote
+{
+    font-family: 'Rosario','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.03em;
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.quote:nth-child(1)
+{
+    top:-18%;
+    left:0%;
+
+}
+
+.quote:nth-child(2)
+{
+    top:84%;
+    left:92%;
+
+}
+
+.hori
+{
+    border: 0.5px solid #CE760C;
+    margin: 15px 0;
+}
+
+
+
+
