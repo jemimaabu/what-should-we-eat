@@ -1,61 +1,15 @@
-
-/* * {
-    box-sizing: border-box;
-}
-
-main {
-    position: absolute;
-    width: 70%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-main .intro{
-    display: inline-block;
-    width: 50%;
-    padding: 1em;
-}
-
-main .intro #intro-title {
-    color: blue;
-}
-
-main form {
-    width: 50%;
-    float: right;
-    padding: 1em;
-}
-
-@media screen and (max-width: 992px) {
-    main {
-        top: 0;
-        left: 0;
-        transform: none;
-    }
-    main, main .intro, main form{
-        width: 100%;
-    }
-} */
-
-
-@font-face
- {
+@font-face {
     font-family: stylus;
     src: url(./fonts/stylu.ttf);
-  }
+}
 
-
-*
-{
-    margin:0;
-    padding:0;
+* {
     box-sizing:border-box;
 }
 
-body
-{
+body {
     background: #FBDAB5;
+    margin: 0;
     font-family: 'Quando','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -64,18 +18,13 @@ body
     letter-spacing: 0.03em;
 }
 
-button
-{
-   
+button { 
    font-family: 'Rosario','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    font-weight: bolder;
 }
 
-
 /*************HEADER SECTION****************/
-
-header
-{
+header {
     height: 35%;
     height:40vh;
     background-color: rgb(252, 136, 4);
@@ -83,13 +32,9 @@ header
     background-size: cover;
     background-position: center;
     position: relative;
-    width: 100vw;
-
 }
 
-header > span
-
-{
+header > span {
     font-family: 'Pacifico','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -102,30 +47,23 @@ header > span
     position: absolute;
 }
 
-span:nth-child(1)
-{
+span:nth-child(1) {
     top: -5%;
     left:5%;   
-
 }
 
-span:nth-child(2)
-{
+span:nth-child(2) {
     top: 25%;
     left:25%;   
 }
 
 /*************MAIN SECTION****************/
-main
-{
-    padding: 10px ;
+main {
+    padding: 10px;
     position: relative;
 }
 
-
-
-blockquote
-{
+blockquote {
     font-family: stylus,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -137,8 +75,7 @@ blockquote
     margin: 10px 0;
 }
 
-.quote
-{
+.quote {
     font-family: 'Rosario','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     letter-spacing: 0.03em;
     position: absolute;
@@ -146,130 +83,96 @@ blockquote
     font-weight: bold;
 }
 
-.quote:nth-child(1)
-{
+.quote:nth-child(1) {
     top:-18%;
     left:0%;
-
 }
 
-.quote:nth-child(2)
-{
+.quote:nth-child(2) {
     top:84%;
     left:92%;
-
 }
 
-.hori
-{
+.hori {
     border: 0.5px solid #CE760C;
     margin: 15px 0;
 }
 
+.intro p {
+    margin-top: 1em;
+}
 
-ul 
-{
+ul {
+    margin-top: 0;
     margin-left: 20px;
     padding: 10px 0;
 }
 
-ul button
-{
+ul button {
     margin-left: 20px;
     height: 20px;
     padding: 5px;
 
 }
 
-.foodlist
-{
+.foodlist {
     list-style-type: none;
     margin-left: auto;
-    
 }
 
-.foodlist li
-{
+.foodlist li {
     background: #999955;
     position: relative;
     padding: 5px;
-    
 }
 
-.foodlist li:nth-child(even)
-{
+.foodlist li:nth-child(even) {
     background: #DFDFA9;
 }
 
-.foodlist button
-{
+.foodlist button {
     float: right;
     background: #C80C07;
     border-color: #C80C07;
-    
 }
 
-.foodlist i
-{
+.foodlist i {
     transform: translateY(-40%);
     color: #999955;  
-   
 }
 
-.foodlist li:nth-child(even) i
-{
+.foodlist li:nth-child(even) i {
     color: #DFDFA9;
 }
 
-input
-{
+input {
     padding: 5px;
     font-size: 1.3em;
 }
 
-
 /*MQ For desktop layout*/
-
-@media (min-width:991px)
-{
-    .quote:nth-child(1)
-    {
+@media (min-width:991px) {
+    .quote:nth-child(1) {
         top:-31%;
         left:4%;
-
     }
 
-
-    .hori
-    {      
+    .hori {      
         margin: 25px 0;
     }
 
-    header > span
-    {   
+    header > span {   
         position: relative;
         font-size: 92px;
-
     }
 
-    header span:nth-child(1)
-    {
+    header span:nth-child(1) {
          top:9vh;
          left:25vw;
-
-
     }
 
-    header span:nth-child(2)
-    {
+    header span:nth-child(2) {
         top:9vh;        
         left:27vw;
     }
-
-
-    
-   
-
-
-   
 }

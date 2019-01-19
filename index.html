@@ -1,93 +1,52 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>What Should We Eat Today?</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Quando|Rosario|Pacifico" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-        crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-</head>
-
-<body>
-    <header>
-        <span>Food</span><span>Chooser</span>
-    </header>
-    <main>
-        <div class="intro">
-            <blockquote>
-                <span class="quote">“</span> Hi, Welcome to the FoodChooser.
-                May I take your order? <span class="quote">”</span>
-            </blockquote>
-
-            <hr class="hori">
-
-            This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
-            It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat
-            somehing else.
-
-            <br>
-            <br>
-
-            How it works:
-            Hi, Welcome to the <span id="intro-title">FoodChooser</span>.
-            <br>May I take your order?
-            <p>This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
-            It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat somehing else.<p>
-            <b>How it works:</b>
-            <ul>
-                <li>Add an option to the list of food</li>
-                <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
-                <li>Eat it.</li>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>What Should We Eat Today?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <link href="https://fonts.googleapis.com/css?family=Quando|Rosario|Pacifico" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    </head>
+    <body>
+        <header>
+            <span>Food</span><span>Chooser</span>
+        </header>
+        <main>
+            <div class="intro">
+                <blockquote>
+                    <span class="quote">“</span> Hi, Welcome to the FoodChooser.
+                    May I take your order? <span class="quote">”</span>
+                </blockquote>
+                <hr class="hori">
+                <p>This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
+                It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat
+                something else.</p>
+                <b>How it works:</b>
+                <ul>
+                    <li>Add an option to the list of food</li>
+                    <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
+                    <li>Eat it.</li>
+                </ul>
+            </div>
+            <ul id="display-food-choice" class="foodlist">
             </ul>
-
-        </div>
-
-
-
-        <br>
-
-
             <div id="form-error"></div>
             <label for="user-food-choice">Input food choice: </label>
             <br>
             <input type="text" id="user-food-choice" maxlength="40">
             <button onclick="addFoodChoice()">Add</button>
             <br>          
-
-        
-
-        <button onclick="generateRandomFood();">FoodChooser</button>
-
-        <ul id="display-food-choice" class="foodlist">
-
-        </ul>
-
-        <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
-        <div class="recommended-links">
-            <a id="recipes-link" target="_blank"></a>
-            <br>
-            <a id="restaurants-link" target="_blank"></a>
-        </div>
-
-
-<!-- 
-            <button type= "button" onclick="addFoodChoice()">Add</button>
-            <div id="display-food-choice">
-            </div>
-            <button type="button" onclick="generateRandomFood();">FoodChooser</button>
-            <div class="food-choice-container"> You should eat: <span id="food-choice"></span></div>
+            <button onclick="generateRandomFood();">FoodChooser</button>
+            <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
             <div class="recommended-links">
                 <a id="recipes-link" target="_blank"></a>
+                <br>
                 <a id="restaurants-link" target="_blank"></a>
             </div>
-        </form> -->
-    </main>
-</body>
+        </main>
+    </body>
 <script src="index.js"></script>
-
 </html>
