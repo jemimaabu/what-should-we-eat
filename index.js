@@ -72,7 +72,9 @@ foodChoiceInput.onkeypress = function(event){
 function deleteFoodChoice(e)
 {
     console.log("clicked");
-    let food =e.target.parentElement.parentElement.textContent;
+    //Chrome was misbehaving when i use only d first one 
+    let food =e.target.parentElement.textContent || e.target.parentElement.parentElement.textContent  ;
+    console.log(e.target.parentElement.parentElement);
      
     console.log(food);
     let index = foodChoices.indexOf(food) ;
