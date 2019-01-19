@@ -10,19 +10,33 @@ var foodCount = 0;
 var foodChoices = ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"]
 
 // Function to display added food choices
-function updateFoodChoices(food) {
-    var span = document.createElement("span")
-    span.innerHTML = food;
-    var click = document.createAttribute("onclick");
-    click.value = "deleteFoodChoice(this)";
-    span.setAttributeNode(click);
-    displayFoodChoice.appendChild(span);
+function updateFoodChoices(food) 
+{
+      
+    let listItem = document.createElement("li");
+    let btn = document.createElement("button");
+    let icon = document.createElement("i");
+
+    icon.classList.add("fas");
+    icon.classList.add("fa-minus");
+    btn.appendChild(icon);   
+   
+    listItem.textContent = food;
+    listItem.appendChild(btn);
+
+  
+    btn.addEventListener("click",deleteFoodChoice);
+    displayFoodChoice.appendChild(listItem);
+   
 }
 
 // Display the choices in initial food choices 
 foodChoices.map(food => updateFoodChoices(food))
 
-function addFoodChoice() {
+function addFoodChoice() 
+{
+
+    
     if (foodChoiceInput.value === "") {
         errorMessage.innerHTML = "Input cannot be empty"
     } else if (foodChoices.includes(foodChoiceInput.value)) {
@@ -30,8 +44,9 @@ function addFoodChoice() {
     } else {
         errorMessage.innerHTML = "";
         foodCount = 0;
-        updateFoodChoices(foodChoiceInput.value);
-        foodChoices.push(foodChoiceInput.value);
+        let food  = foodChoiceInput.value;        
+        updateFoodChoices(food);
+        foodChoices.push(food);
         foodChoiceInput.value="";
     }
 }
@@ -45,12 +60,32 @@ foodChoiceInput.onkeypress = function(event){
     return true;
 };
 
-function deleteFoodChoice(e) {
-    var index = foodChoices.indexOf(e.innerText);
-    if (index >= 0) {
+// function deleteFoodChoice(e) {
+//     var index = foodChoices.indexOf(e.innerText);
+//     if (index >= 0) {
+//         foodChoices.splice(index, 1);
+//         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
+//     }
+// }
+
+
+function deleteFoodChoice(e)
+{
+    console.log("clicked");
+    //Chrome was misbehaving when i use only d first one 
+    let food =e.target.parentElement.textContent || e.target.parentElement.parentElement.textContent  ;
+    console.log(e.target.parentElement.parentElement);
+     
+    console.log(food);
+    let index = foodChoices.indexOf(food) ;
+    if( index > -1)
+    {        
         foodChoices.splice(index, 1);
+        console.log("removed")
         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
+
     }
+
 }
 
 function generateRandomFood() {
