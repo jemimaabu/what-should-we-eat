@@ -7,6 +7,8 @@
     <title>What Should We Eat Today?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Quando|Rosario|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 </head>
@@ -40,26 +42,30 @@
 
         </div>
 
+
+
         <br>
 
 
-        <form>
             <div id="form-error"></div>
             <label for="user-food-choice">Input food choice: </label>
+            <br>
             <input type="text" id="user-food-choice" maxlength="40">
             <button onclick="addFoodChoice()">Add</button>
+            <br>          
 
-            <button onclick="generateRandomFood();">FoodChooser</button>
+        
 
-        </form>
+        <button onclick="generateRandomFood();">FoodChooser</button>
 
-        <ul id="display-food-choice">
+        <ul id="display-food-choice" class="foodlist">
 
         </ul>
 
         <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
         <div class="recommended-links">
             <a id="recipes-link" target="_blank"></a>
+            <br>
             <a id="restaurants-link" target="_blank"></a>
         </div>
 

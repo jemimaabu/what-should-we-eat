@@ -10,20 +10,22 @@ var foodCount = 0;
 var foodChoices = ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"]
 
 // Function to display added food choices
-function updateFoodChoices(food) {
-   // var span = document.createElement("span")
-   
+function updateFoodChoices(food) 
+{
+      
     let listItem = document.createElement("li");
     let btn = document.createElement("button");
-    btn.textContent = "-";
+    let icon = document.createElement("i");
 
-    btn.addEventListener("click",deleteFoodChoice,false);
+    icon.classList.add("fas");
+    icon.classList.add("fa-minus");
+    btn.appendChild(icon);   
    
     listItem.textContent = food;
     listItem.appendChild(btn);
 
   
-  
+    btn.addEventListener("click",deleteFoodChoice);
     displayFoodChoice.appendChild(listItem);
    
 }
@@ -31,7 +33,11 @@ function updateFoodChoices(food) {
 // Display the choices in initial food choices 
 foodChoices.map(food => updateFoodChoices(food))
 
-function addFoodChoice() {
+function addFoodChoice() 
+{
+
+   
+    
     if (foodChoiceInput.value === "") {
         errorMessage.innerHTML = "Input cannot be empty"
     } else if (foodChoices.includes(foodChoiceInput.value)) {
@@ -39,8 +45,11 @@ function addFoodChoice() {
     } else {
         errorMessage.innerHTML = "";
         foodCount = 0;
-        updateFoodChoices(foodChoiceInput.value);
-        foodChoices.push(foodChoiceInput.value);
+        let food  = foodChoiceInput.value.trim();
+        let firstLetter =  food.charAt(0).toUpperCase();
+        food = firstLetter + food.split("").splice(1).join("");        
+        updateFoodChoices(food);
+        foodChoices.push(food);
         foodChoiceInput.value="";
     }
 }
@@ -66,8 +75,8 @@ foodChoiceInput.onkeypress = function(event){
 function deleteFoodChoice(e)
 {
     console.log("clicked");
-    let food = e.target.parentElement.textContent;
-    food = food.split("").splice(0,food.length-1).join("");    
+    let food =e.target.parentElement.parentElement.textContent;
+     
     console.log(food);
     let index = foodChoices.indexOf(food) ;
     if( index > -1)

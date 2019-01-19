@@ -23,6 +23,13 @@ body
     letter-spacing: 0.03em;
 }
 
+button
+{
+   
+   font-family: 'Rosario','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bolder;
+}
+
 
 /*************HEADER SECTION****************/
 
@@ -35,6 +42,7 @@ header
     background-size: cover;
     background-position: center;
     position: relative;
+    width: 100vw;
 
 }
 
@@ -55,15 +63,15 @@ header > span
 
 span:nth-child(1)
 {
-    top: -9%;
+    top: -5%;
     left:5%;   
 
 }
 
 span:nth-child(2)
 {
-    top: 20%;
-    left:30%;   
+    top: 25%;
+    left:25%;   
 }
 
 /*************MAIN SECTION****************/
@@ -73,10 +81,7 @@ main
     position: relative;
 }
 
-.intro
-{
-    
-}
+
 
 blockquote
 {
@@ -124,5 +129,58 @@ blockquote
 ul 
 {
     margin-left: 20px;
+    padding: 10px 0;
+}
+
+ul button
+{
+    margin-left: 20px;
+    height: 20px;
+    padding: 5px;
+
+}
+
+.foodlist
+{
+    list-style-type: none;
+    margin-left: auto;
+    
+}
+
+.foodlist li
+{
+    background: #999955;
+    position: relative;
+    padding: 5px;
+    
+}
+
+.foodlist li:nth-child(even)
+{
+    background: #DFDFA9;
+}
+
+.foodlist button
+{
+    float: right;
+    background: #C80C07;
+    border-color: #C80C07;
+    
+}
+
+.foodlist i
+{
+    transform: translateY(-40%);
+    color: #999955;
+    
+   
+   
+}
+
+
+
+.foodlist li:nth-child(even) i
+{
+    color: #DFDFA9;
 }
 
