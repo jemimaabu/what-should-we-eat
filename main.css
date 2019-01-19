@@ -69,7 +69,7 @@ span:nth-child(2)
 /*************MAIN SECTION****************/
 main
 {
-    padding: 10px;
+    padding: 10px ;
     position: relative;
 }
 
@@ -121,5 +121,8 @@ blockquote
 }
 
 
-
+ul 
+{
+    margin-left: 20px;
+}
 
