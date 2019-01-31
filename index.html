@@ -21,25 +21,32 @@
                     May I take your order? <span class="quote">”</span>
                 </blockquote>
                 <hr class="hori">
-                <p>This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
-                It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat
-                something else.</p>
+                <p>
+                    This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
+                    It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat
+                    something else.
+                </p>
                 <b>How it works:</b>
                 <ul>
                     <li>Add an option to the list of food</li>
-                    <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
                     <li>Eat it.</li>
+                    <li>OR</li>
+                    <li>Add a food choice from the suggested list below</li>
+                    <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
                 </ul>
             </div>
             <ul id="display-food-choice" class="foodlist">
             </ul>
+
             <div id="form-error"></div>
             <label for="user-food-choice">Input food choice: </label>
             <br>
+            
             <input type="text" id="user-food-choice" maxlength="40">
             <button onclick="addFoodChoice()">Add</button>
             <br>          
             <button onclick="generateRandomFood();">FoodChooser</button>
+            <div id = "suggested-foods">You can add: <span id ="food-suggested"></span></div>
             <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
             <div class="recommended-links">
                 <a id="recipes-link" target="_blank"></a>

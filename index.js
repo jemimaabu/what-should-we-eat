@@ -2,6 +2,7 @@ var foodChoiceInput = document.getElementById("user-food-choice");
 var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
 var foodChosen = document.getElementById("food-choice");
+var suggestedFood = document.getElementById("food-suggested");
 
 //Variable to detect how many times a user has generated a random food choice
 var foodCount = 0;
@@ -24,11 +25,10 @@ function updateFoodChoices(food)
     listItem.textContent = food;
     listItem.appendChild(btn);
 
-  
-    btn.addEventListener("click",deleteFoodChoice);
+    btn.addEventListener("click", deleteFoodChoice);
     displayFoodChoice.appendChild(listItem);
    
-}
+}   
 
 // Display the choices in initial food choices 
 foodChoices.map(food => updateFoodChoices(food))
@@ -73,9 +73,9 @@ function deleteFoodChoice(e)
 {
     console.log("clicked");
     //Chrome was misbehaving when i use only d first one 
-    let food =e.target.parentElement.textContent || e.target.parentElement.parentElement.textContent  ;
+    let food = e.target.parentElement.textContent || e.target.parentElement.parentElement.textContent  ;
     console.log(e.target.parentElement.parentElement);
-     
+    
     console.log(food);
     let index = foodChoices.indexOf(food) ;
     if( index > -1)
@@ -111,8 +111,10 @@ function generateRandomFood() {
 function renderSuggestedLinks() {
     var recipesLink = document.getElementById('recipes-link');
     var restaurants = document.getElementById('restaurants-link');
-    recipesLink.innerHTML = `${foodChosen.innerText} recipes`;
-    recipesLink.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+recipes`;
+    recipesLink.innerHTML = `${foodChosen.innerText} recipes`; 
+    //This gives a better result
+    recipesLink.href = `https://www.google.com/search?q=+how+to+make+${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}`;
     restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
     restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
 }
+//
