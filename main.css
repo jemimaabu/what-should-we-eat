@@ -18,6 +18,10 @@ body {
     letter-spacing: 0.03em;
 }
 
+.github-corner:hover .octo-arm {
+    animation:octocat-wave 560ms ease-in-out
+}
+
 button { 
    font-family: 'Rosario','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
    font-weight: bolder;
@@ -151,7 +155,16 @@ input {
 }
 
 /*MQ For desktop layout*/
-@media (min-width:991px) {
+@media (min-width:992px) {
+
+    .github-corner:hover .octo-arm {
+        animation:none
+    }
+    
+    .github-corner .octo-arm {
+        animation:octocat-wave 560ms ease-in-out
+    }
+
     .quote:nth-child(1) {
         top:-31%;
         left:4%;
@@ -174,5 +187,18 @@ input {
     header span:nth-child(2) {
         top:9vh;        
         left:27vw;
+    }
+}
+
+@keyframes octocat-wave {
+    0%, 100% {
+        transform:rotate(0)
+    }
+    
+    20%, 60% {
+        transform:rotate(-25deg)
+    } 
+    40%, 80% {
+        transform:rotate(10deg)
     }
 }
