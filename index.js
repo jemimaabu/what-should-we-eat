@@ -13,7 +13,6 @@ var foodChoices = ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Ind
 // Function to display added food choices
 function updateFoodChoices(food) 
 {
-      
     let listItem = document.createElement("li");
     let btn = document.createElement("button");
     let icon = document.createElement("i");
@@ -26,8 +25,7 @@ function updateFoodChoices(food)
     listItem.appendChild(btn);
 
     btn.addEventListener("click", deleteFoodChoice);
-    displayFoodChoice.appendChild(listItem);
-   
+    displayFoodChoice.appendChild(listItem);   
 }   
 
 // Display the choices in initial food choices 
@@ -117,4 +115,7 @@ function renderSuggestedLinks() {
     restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
     restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
 }
-//
+/*
+    starting my service worker to make this save user data input
+    and deletion
+*/
