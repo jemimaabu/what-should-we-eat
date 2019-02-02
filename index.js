@@ -2,12 +2,15 @@ var foodChoiceInput = document.getElementById("user-food-choice");
 var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
 var foodChosen = document.getElementById("food-choice");
+var lTable = document.getElementById("loginTable");
 
 //Variable to detect how many times a user has generated a random food choice
 var foodCount = 0;
 
 //Array containing initial food choices
 var foodChoices = ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"]
+
+lTable.style.visibility = "hidden"
 
 // Function to display added food choices
 function updateFoodChoices(food) 
@@ -89,6 +92,7 @@ function deleteFoodChoice(e)
 }
 
 function generateRandomFood() {
+    lTable.style.visibility = "visible"
     if (foodChoices.length === 0) {
         errorMessage.innerHTML = "Can't choose if there's nothing to choose from"
     } else if (foodChoices.length === 1) {
