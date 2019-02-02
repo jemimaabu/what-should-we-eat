@@ -1,9 +1,9 @@
 //Service worker file
 'use strict';
 
-var foodCacheName = 'foodCacheV1';
-var foodCachePagesName = 'foodCachePageV1';
-var foodCacheFiles = [
+let foodCacheName = 'foodCacheV1';
+let foodCachePagesName = 'foodCachePageV1';
+let foodCacheFiles = [
     'index.html',
     'index.js',
     'main.css',
