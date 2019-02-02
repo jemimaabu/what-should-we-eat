@@ -40,7 +40,7 @@ function addFoodChoice()
     
     if (foodChoiceInput.value === "") {
         errorMessage.innerHTML = "Input cannot be empty"
-    } else if (foodChoices.includes(foodChoiceInput.value)) {
+    } else if (foodChoices.foods.includes(foodChoiceInput.value)) {
         errorMessage.innerHTML = "Cannot include duplicate item"
     } else {
         errorMessage.innerHTML = "";
@@ -53,7 +53,7 @@ function addFoodChoice()
 }
 
 // Allow food choice to be added if Enter key is pressed in the input
-foodChoiceInput.onkeypress = function(event){
+foodChoiceInput.onkeydown = function(event){
     if (event.which == 13 || event.keyCode == 13) {
         addFoodChoice()
         return false;
@@ -84,7 +84,7 @@ function deleteFoodChoice(e)
         foodChoices.foods.splice(index, 1);
         console.log("removed")
         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
-
+        localStorage.setItem('localFoodChoices', JSON.stringify(foodChoices))
     }
 
 }
@@ -122,12 +122,13 @@ function renderSuggestedLinks() {
     saving data in case user refreshes or leaves
     page
 */
-localStorage.setItem('foodChoices', JSON.stringify(foodChoices));
+localStorage.setItem('localFoodChoices', JSON.stringify(foodChoices));
 
-let obj = JSON.parse(localStorage.foodChoices);
-function myFunction(){
-    document.getElementById('').innerHTML ="";
-}
+let obj = JSON.parse(localStorage.localFoodChoices);
+document.getElementById('display-food-choice').innerHTML = obj.foods;
+ obj.foods.map(food => updateFoodChoices(food));
+
+
 // saveData.addEventListener('click', function(){
 
 // })
