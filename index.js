@@ -9,9 +9,21 @@ var foodCount = 0;
 
 //Array containing initial food choices
 //Had to turn this into an object to save
-var foodChoices = {
-    foods: ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"]
-};
+
+var foodChoices =  ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"];
+
+/*
+   saving data in case user refreshes or leaves
+    page
+*/
+
+
+let obj = localStorage.getItem('localFoodChoices') ? JSON.parse(localStorage.getItem('localFoodChoices')) : [];
+
+localStorage.setItem('localFoodChoices', JSON.stringify(obj));
+
+// Display the choices in initial food choices     
+obj.map(food => updateFoodChoices(food));
 
 // Function to display added food choices
 function updateFoodChoices(food) 
@@ -31,27 +43,25 @@ function updateFoodChoices(food)
     displayFoodChoice.appendChild(listItem);   
 }   
 
-// Display the choices in initial food choices 
-foodChoices.foods.map(food => updateFoodChoices(food))
-
 function addFoodChoice() 
 {
 
-    
     if (foodChoiceInput.value === "") {
         errorMessage.innerHTML = "Input cannot be empty"
-    } else if (foodChoices.foods.includes(foodChoiceInput.value)) {
+    } else if (foodChoices.includes(foodChoiceInput.value)) {
         errorMessage.innerHTML = "Cannot include duplicate item"
     } else {
         errorMessage.innerHTML = "";
         foodCount = 0;
         let food  = foodChoiceInput.value;        
         updateFoodChoices(food);
-        foodChoices.foods.push(food);
         foodChoiceInput.value="";
+        foodChoices.push(food);
+        obj.push(food);
+        localStorage.setItem('localFoodChoices', JSON.stringify(obj));
     }
 }
-
+        
 // Allow food choice to be added if Enter key is pressed in the input
 foodChoiceInput.onkeydown = function(event){
     if (event.which == 13 || event.keyCode == 13) {
@@ -78,29 +88,32 @@ function deleteFoodChoice(e)
     console.log(e.target.parentElement.parentElement);
     
     console.log(food);
-    let index = foodChoices.foods.indexOf(food) ;
+    let index = foodChoices.indexOf(food);
     if( index > -1)
     {        
-        foodChoices.foods.splice(index, 1);
-        console.log("removed")
+        foodChoices.splice(index, 1);
+        obj.splice(index, 1);
+        console.log("removed");
+        //This was causing some issues when trying to delete an
+        //added item in localStorage 
         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
-        localStorage.setItem('localFoodChoices', JSON.stringify(foodChoices))
+        localStorage.setItem('localFoodChoices', JSON.stringify(obj));
     }
 
 }
 
 function generateRandomFood() {
-    if (foodChoices.foods.length === 0) {
+    if (foodChoices.length === 0) {
         errorMessage.innerHTML = "Can't choose if there's nothing to choose from"
-    } else if (foodChoices.foods.length === 1) {
+    } else if (foodChoices.length === 1) {
         errorMessage.innerHTML = "It's not very random if you only have one option"
     } else {
         foodCount++;
         // Condition to ensure user can only generate random food once
         if (foodCount <= 1) {
             errorMessage.innerHTML = "";
-            var randomIndex = Math.floor(Math.random()*foodChoices.foods.length);
-            foodChosen.innerHTML = foodChoices.food[randomIndex];
+            var randomIndex = Math.floor(Math.random()*foodChoices.length);
+            foodChosen.innerHTML = foodChoices[randomIndex];
             renderSuggestedLinks();
         } else {
             errorMessage.innerHTML = "Sorry, no takebacks. It wouldn't be very random if you could just keep clicking. Enjoy your meal!"
@@ -118,16 +131,6 @@ function renderSuggestedLinks() {
     restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
     restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
 }
-/*
-    saving data in case user refreshes or leaves
-    page
-*/
-localStorage.setItem('localFoodChoices', JSON.stringify(foodChoices));
-
-let obj = JSON.parse(localStorage.localFoodChoices);
-document.getElementById('display-food-choice').innerHTML = obj.foods;
- obj.foods.map(food => updateFoodChoices(food));
-
 
 // saveData.addEventListener('click', function(){
 
