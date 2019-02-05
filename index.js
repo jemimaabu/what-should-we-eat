@@ -2,7 +2,7 @@ var foodChoiceInput = document.getElementById("user-food-choice");
 var displayFoodChoice = document.getElementById("display-food-choice");
 var errorMessage = document.getElementById("form-error");
 var foodChosen = document.getElementById("food-choice");
-var suggestedFood = document.getElementById("food-suggested");
+var lTable = document.getElementById("loginTable");
 
 //Variable to detect how many times a user has generated a random food choice
 var foodCount = 0;
@@ -24,6 +24,8 @@ localStorage.setItem('localFoodChoices', JSON.stringify(obj));
 
 // Display the choices in initial food choices     
 obj.map(food => updateFoodChoices(food));
+
+lTable.style.visibility = "hidden"
 
 // Function to display added food choices
 function updateFoodChoices(food) 
@@ -103,6 +105,7 @@ function deleteFoodChoice(e)
 
 function generateRandomFood() {
     if (obj.length === 0) {
+    lTable.style.visibility = "visible";
         errorMessage.innerHTML = "Can't choose if there's nothing to choose from"
     } else if (obj.length === 1) {
         errorMessage.innerHTML = "It's not very random if you only have one option"
