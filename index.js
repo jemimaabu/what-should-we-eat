@@ -125,8 +125,7 @@ function renderSuggestedLinks() {
     var recipesLink = document.getElementById('recipes-link');
     var restaurants = document.getElementById('restaurants-link');
     recipesLink.innerHTML = `${foodChosen.innerText} recipes`; 
-    //This gives a better result
-    recipesLink.href = `https://www.google.com/search?q=+how+to+make+${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}`;
+    recipesLink.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+recipes`;
     restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
     restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
 }
