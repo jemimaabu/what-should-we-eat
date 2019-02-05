@@ -8,8 +8,6 @@ var suggestedFood = document.getElementById("food-suggested");
 var foodCount = 0;
 
 //Array containing initial food choices
-//Had to turn this into an object to save
-
 var foodChoices =  ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"];
 
 /*
@@ -17,8 +15,10 @@ var foodChoices =  ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "In
     page
 */
 
-
 let obj = localStorage.getItem('localFoodChoices') ? JSON.parse(localStorage.getItem('localFoodChoices')) : [];
+
+//This shows the default values first
+localStorage.setItem('localFoodChoices', JSON.stringify(foodChoices));
 
 localStorage.setItem('localFoodChoices', JSON.stringify(obj));
 
@@ -91,11 +91,10 @@ function deleteFoodChoice(e)
     let index = obj.indexOf(food);
     if( index > -1)
     {        
+        //No need for this anymore
         // foodChoices.splice(index, 1);
         obj.splice(index, 1);
-        console.log("removed");
-        //This was causing some issues when trying to delete an
-        //added item in localStorage 
+        console.log("removed"); 
         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
         localStorage.setItem('localFoodChoices', JSON.stringify(obj));
     }
@@ -131,7 +130,3 @@ function renderSuggestedLinks() {
     restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
     restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
 }
-
-// saveData.addEventListener('click', function(){
-
-// })
