@@ -88,10 +88,10 @@ function deleteFoodChoice(e)
     console.log(e.target.parentElement.parentElement);
     
     console.log(food);
-    let index = foodChoices.indexOf(food);
+    let index = obj.indexOf(food);
     if( index > -1)
     {        
-        foodChoices.splice(index, 1);
+        // foodChoices.splice(index, 1);
         obj.splice(index, 1);
         console.log("removed");
         //This was causing some issues when trying to delete an
