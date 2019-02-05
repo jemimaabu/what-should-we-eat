@@ -105,7 +105,6 @@ function deleteFoodChoice(e)
 
 function generateRandomFood() {
     if (obj.length === 0) {
-    lTable.style.visibility = "visible";
         errorMessage.innerHTML = "Can't choose if there's nothing to choose from"
     } else if (obj.length === 1) {
         errorMessage.innerHTML = "It's not very random if you only have one option"
@@ -113,6 +112,7 @@ function generateRandomFood() {
         foodCount++;
         // Condition to ensure user can only generate random food once
         if (foodCount <= 1) {
+            lTable.style.visibility = "visible";
             errorMessage.innerHTML = "";
             var randomIndex = Math.floor(Math.random()*obj.length);
             foodChosen.innerHTML = obj[randomIndex];
@@ -120,7 +120,7 @@ function generateRandomFood() {
         } else {
             errorMessage.innerHTML = "Sorry, no takebacks. It wouldn't be very random if you could just keep clicking. Enjoy your meal!"
         }
-
+        
     }
 }
 
