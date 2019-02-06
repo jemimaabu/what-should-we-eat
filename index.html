@@ -6,6 +6,7 @@
         <title>What Should We Eat Today?</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="A webpage that chooses at random from a list of food choices and helps settle the question 'What should we eat?'">
+        <!--Cannot use service worker over calls from https paths-->
         <link href="https://fonts.googleapis.com/css?family=Quando|Rosario|Pacifico" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
@@ -22,25 +23,32 @@
                     May I take your order? <span class="quote">”</span>
                 </blockquote>
                 <hr class="hori">
-                <p>This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
-                It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat
-                something else.</p>
+                <p>
+                    This app is designed to make choosing what to eat a lot easier, especially when you have a lot of options.
+                    It's also helpful for settling arguments when you want to eat one thing but <i>somebody</i> wants to eat
+                    something else.
+                </p>
                 <b>How it works:</b>
                 <ul>
                     <li>Add an option to the list of food</li>
-                    <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
                     <li>Eat it.</li>
+                    <li>OR</li>
+                    <li>Add a food choice from the suggested list below</li>
+                    <li>Click the 'FoodChooser' button to select randomly from the options provided</li>
                 </ul>
             </div>
             <ul id="display-food-choice" class="foodlist">
             </ul>
+
             <div id="form-error"></div>
             <label for="user-food-choice">Input food choice: </label>
             <br>
+            
             <input type="text" id="user-food-choice" maxlength="40">
             <button onclick="addFoodChoice()">Add</button>
             <br>          
             <button onclick="generateRandomFood();">FoodChooser</button>
+            <div id = "suggested-foods">You can add: <span id ="food-suggested"></span></div>
             <div class="food-chooser"> You should eat: <span id="food-choice"></span></div>
             <div class="recommended-links">
                 <center>

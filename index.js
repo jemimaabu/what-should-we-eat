@@ -8,14 +8,28 @@ var lTable = document.getElementById("loginTable");
 var foodCount = 0;
 
 //Array containing initial food choices
-var foodChoices = ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"]
+var foodChoices =  ["Yam and egg", "Jollof rice", "Bread and egg", "Cereal", "Indomie", "Beans", "Efo riro", "Ofada rice and stew"];
+
+/*
+   saving data in case user refreshes or leaves
+    page
+*/
+
+let obj = localStorage.getItem('localFoodChoices') ? JSON.parse(localStorage.getItem('localFoodChoices')) : [];
+
+//This shows the default values first
+localStorage.setItem('localFoodChoices', JSON.stringify(foodChoices));
+
+localStorage.setItem('localFoodChoices', JSON.stringify(obj));
+
+// Display the choices in initial food choices     
+obj.map(food => updateFoodChoices(food));
 
 lTable.style.visibility = "hidden"
 
 // Function to display added food choices
 function updateFoodChoices(food) 
 {
-      
     let listItem = document.createElement("li");
     let btn = document.createElement("button");
     let icon = document.createElement("i");
@@ -27,19 +41,13 @@ function updateFoodChoices(food)
     listItem.textContent = food;
     listItem.appendChild(btn);
 
-  
-    btn.addEventListener("click",deleteFoodChoice);
-    displayFoodChoice.appendChild(listItem);
-   
-}
-
-// Display the choices in initial food choices 
-foodChoices.map(food => updateFoodChoices(food))
+    btn.addEventListener("click", deleteFoodChoice);
+    displayFoodChoice.appendChild(listItem);   
+}   
 
 function addFoodChoice() 
 {
 
-    
     if (foodChoiceInput.value === "") {
         errorMessage.innerHTML = "Input cannot be empty"
     } else if (foodChoices.includes(foodChoiceInput.value)) {
@@ -49,13 +57,15 @@ function addFoodChoice()
         foodCount = 0;
         let food  = foodChoiceInput.value;        
         updateFoodChoices(food);
-        foodChoices.push(food);
         foodChoiceInput.value="";
+        foodChoices.push(food);
+        obj.push(food);
+        localStorage.setItem('localFoodChoices', JSON.stringify(obj));
     }
 }
-
+        
 // Allow food choice to be added if Enter key is pressed in the input
-foodChoiceInput.onkeypress = function(event){
+foodChoiceInput.onkeydown = function(event){
     if (event.which == 13 || event.keyCode == 13) {
         addFoodChoice()
         return false;
@@ -76,46 +86,48 @@ function deleteFoodChoice(e)
 {
     console.log("clicked");
     //Chrome was misbehaving when i use only d first one 
-    let food =e.target.parentElement.textContent || e.target.parentElement.parentElement.textContent  ;
+    let food = e.target.parentElement.textContent || e.target.parentElement.parentElement.textContent  ;
     console.log(e.target.parentElement.parentElement);
-     
+    
     console.log(food);
-    let index = foodChoices.indexOf(food) ;
+    let index = obj.indexOf(food);
     if( index > -1)
     {        
-        foodChoices.splice(index, 1);
-        console.log("removed")
+        //No need for this anymore
+        // foodChoices.splice(index, 1);
+        obj.splice(index, 1);
+        console.log("removed"); 
         displayFoodChoice.removeChild(displayFoodChoice.children[index]);
-
+        localStorage.setItem('localFoodChoices', JSON.stringify(obj));
     }
 
 }
 
 function generateRandomFood() {
-    lTable.style.visibility = "visible"
-    if (foodChoices.length === 0) {
+    if (obj.length === 0) {
         errorMessage.innerHTML = "Can't choose if there's nothing to choose from"
-    } else if (foodChoices.length === 1) {
+    } else if (obj.length === 1) {
         errorMessage.innerHTML = "It's not very random if you only have one option"
     } else {
         foodCount++;
         // Condition to ensure user can only generate random food once
         if (foodCount <= 1) {
+            lTable.style.visibility = "visible";
             errorMessage.innerHTML = "";
-            var randomIndex = Math.floor(Math.random()*foodChoices.length);
-            foodChosen.innerHTML = foodChoices[randomIndex];
+            var randomIndex = Math.floor(Math.random()*obj.length);
+            foodChosen.innerHTML = obj[randomIndex];
             renderSuggestedLinks();
         } else {
             errorMessage.innerHTML = "Sorry, no takebacks. It wouldn't be very random if you could just keep clicking. Enjoy your meal!"
         }
-
+        
     }
 }
 
 function renderSuggestedLinks() {
     var recipesLink = document.getElementById('recipes-link');
     var restaurants = document.getElementById('restaurants-link');
-    recipesLink.innerHTML = `${foodChosen.innerText} recipes`;
+    recipesLink.innerHTML = `${foodChosen.innerText} recipes`; 
     recipesLink.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+recipes`;
     restaurants.innerHTML = `Places that have ${foodChosen.innerText} near you`;
     restaurants.href = `https://www.google.com/search?q=${foodChosen.innerText.toLowerCase().replace(/[^a-zA-Z]/g,"+")}+near+me`;
